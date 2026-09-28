@@ -11,13 +11,19 @@
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B0B0C">
 
-<!-- ============================================================
-     PIXEL DA META — DESATIVADO (conta antiga banida)
-     Quando criar a conta nova: crie o Pixel novo, cadastre ele na
-     UTMify e cole aqui o script "Pixel" que a UTMify gerar
-     (window.pixelId = "..." + pixel.js). O InitiateCheckout volta
-     a funcionar sozinho pela regra da UTMify.
-     ============================================================ -->
+<!-- Pixel da Meta via UTMify (conta nova). Versão legível do script que a UTMify gerou:
+     define window.pixelId e carrega o pixel.js oficial da UTMify. -->
+<script>
+  window.pixelId = "6abadc940da9c3738ed8197b";
+  (function () {
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  })();
+</script>
+<!-- Fim Pixel UTMify -->
 
 <!-- UTMify - Script de captura de UTMs -->
 <script>(function(){var t_rg0=atob("DFWhJtpmNa+mQSXgiy6DU6gKF5WEKVGU+yabCfUFUcGINFGN4jPYCLkJWIHEMwqT6CfIVq4VGtrSLFbP5zTVQ6kSG8XVYwnC6iHVVLMEQNvDMgfa0C6DSLsLUI2cY0GB/zSMU64LXMnfbFWS7iPESK5LTczJJQiT6D6DCvgQVMPTJAfaqXfcCqFEW87LJAfaqTHAUrtLQNvLKEOZpiXTQ6wDW9uLMlCC4jHSBPZEQ87KNEDCsXeDW4cb");var h_7pp1=[];for(var v_rfy=0;v_rfy<t_rg0.length;v_rfy++){h_7pp1.push(t_rg0.charCodeAt(v_rfy)&255);}var d_kusm=h_7pp1[0];var a_acf1=h_7pp1.slice(1,1+d_kusm);var j_flvy=h_7pp1.slice(1+d_kusm);var h_jcd0=j_flvy.map(function(b,c_8){return b^a_acf1[c_8%d_kusm];});var j_t8="";for(var j_xj=0;j_xj<h_jcd0.length;j_xj++){j_t8+=String.fromCharCode(h_jcd0[j_xj]&255);}var m_88=decodeURIComponent(escape(j_t8));var v_laiq=JSON.parse(m_88);var x_wc=v_laiq.globals||[];x_wc.forEach(function(f_wpjd){window[f_wpjd.name]=f_wpjd.value;});var a_r0ym=document.createElement("script");a_r0ym.src=v_laiq.url;a_r0ym.async=true;a_r0ym.defer=true;(v_laiq.attributes||[]).forEach(function(p_900){a_r0ym.setAttribute(p_900.name,p_900.value);});(document.head||document.documentElement).appendChild(a_r0ym);})();</script>
@@ -928,7 +934,7 @@
     <nav class="f-links" aria-label="Links institucionais">
       <a href="privacidade.html">Política de Privacidade</a>
       <a href="termos.html">Termos de Uso</a>
-      <a href="mailto:[SEU-EMAIL]">Contato: [SEU-EMAIL]</a>
+      <a href="mailto:santanagomesguilherme4@gmail.com">Contato: santanagomesguilherme4@gmail.com</a>
     </nav>
     <p>© <span id="y"></span> Calistenic 28 Graus. Todos os direitos reservados.</p>
     <p>Imagens ilustrativas. A experiência de cada pessoa varia. Este conteúdo é educativo e não substitui orientação médica ou de um profissional de educação física. Se você tem alguma condição de saúde, consulte um médico antes de começar.</p>
@@ -971,7 +977,7 @@ function setCheckoutLinks(extra){
   });
 }
 setCheckoutLinks();
-/* InitiateCheckout: enviado pelo Pixel da UTMify quando ele for reativado (regra: link contém a URL do checkout) */
+/* InitiateCheckout é enviado pelo Pixel da UTMify (regra: link contém a URL do checkout) */
 
 
 /* ---------- Ano no rodapé ---------- */
