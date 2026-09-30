@@ -487,6 +487,14 @@
   .lv-track{position:relative;height:12px;margin-left:22px;border-radius:99px;background:rgba(255,255,255,.08)}
   .lv-track::before{content:"";position:absolute;left:-22px;top:50%;width:26px;height:26px;border-radius:50%;transform:translateY(-50%);background:var(--c);box-shadow:0 0 18px -2px var(--c);transition:background .3s,box-shadow .3s}
   .lv-track i{position:absolute;inset:0;border-radius:99px;background:linear-gradient(90deg,var(--cold),var(--mild) 36%,var(--warm) 66%,var(--yellow));clip-path:inset(0 calc(100% - var(--p)) 0 0 round 99px);transition:clip-path .15s linear}
+  /* Foguinho na ponta quando chega aos 28° */
+  .lv-track .flame{position:absolute;right:-2px;bottom:6px;width:22px;height:30px;opacity:0;transform:scale(.2);transform-origin:50% 100%;transition:opacity .3s,transform .4s cubic-bezier(.3,1.6,.5,1);pointer-events:none}
+  .lv-thermo.hot .flame{opacity:1;transform:scale(1)}
+  .flame::before,.flame i{content:"";position:absolute;left:50%;bottom:0;border-radius:50% 0 50% 50%;transform:translateX(-50%) rotate(-45deg);transform-origin:50% 50%}
+  .flame::before{width:18px;height:18px;background:radial-gradient(circle at 65% 35%,#ffe500,#ff9a1f 55%,#ff4d1a);box-shadow:0 0 18px 3px rgba(255,140,0,.6);animation:flick .8s ease-in-out infinite alternate}
+  .lv-track .flame i{width:9px;height:9px;inset:auto auto 1px 50%;background:#fff3a6;clip-path:none;animation:flick .55s ease-in-out infinite alternate-reverse}
+  @keyframes flick{0%{transform:translateX(-50%) rotate(-45deg) scale(1)}100%{transform:translateX(-50%) rotate(-38deg) scale(1.14,.92)}}
+  @media (prefers-reduced-motion:reduce){.flame::before,.lv-track .flame i{animation:none}}
   .lv-ticks{display:flex;justify-content:space-between;margin:10px 0 0 22px;font-family:"Archivo";font-weight:900;font-style:italic;font-size:16px;color:var(--text-3)}
   .lv-ticks span{transition:color .3s}
   .lv-ticks span.on:nth-child(1){color:var(--cold)} .lv-ticks span.on:nth-child(2){color:var(--mild)}
@@ -668,7 +676,7 @@
     <h2 class="h2 reveal">Cada grau é um <span class="y">novo estágio</span> da sua evolução.</h2>
     <p class="lead reveal">Você encontra um treino, depois outro, e no dia seguinte não sabe o que fazer. <strong>A jornada organiza isso em 28 dias e 4 etapas.</strong> Você só abre o treino do dia e segue.</p>
     <div class="lv-thermo reveal" id="lvThermo" aria-hidden="true">
-      <div class="lv-track"><i></i></div>
+      <div class="lv-track"><i></i><b class="flame"><i></i></b></div>
       <div class="lv-ticks"><span>18°</span><span>22°</span><span>25°</span><span>28°</span></div>
     </div>
     <div class="lv-row reveal" aria-label="As 4 etapas da jornada">
@@ -985,6 +993,7 @@ function buildResult(a){
     var idx = Math.round(p * 3);
     th.style.setProperty("--p", (12 + 88 * p) + "%");
     th.style.setProperty("--c", colors[idx]);
+    th.classList.toggle("hot", p >= 0.98);
     ticks.forEach(function(t, i){ t.classList.toggle("on", i <= idx); });
   }
   row.addEventListener("scroll", upd, {passive:true});
