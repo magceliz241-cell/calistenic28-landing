@@ -478,7 +478,8 @@
   .app-words span:nth-child(odd){color:var(--text)} .app-words span:nth-child(even){color:var(--yellow)}
   .phones{display:flex;gap:14px;margin-top:40px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 18px;margin-left:-16px;margin-right:-16px;scrollbar-width:none}
   .phones::-webkit-scrollbar{display:none}
-  .phones.is-loop{scroll-snap-type:none}
+  .phones.is-loop{scroll-snap-type:none;overflow-x:hidden;touch-action:pan-y}
+  .phones.is-loop + .phone-dots i{cursor:default}
   .phone-dots{display:flex;justify-content:center;gap:8px;margin-top:4px}
   .phone-dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.18);transition:width .3s,background .3s;cursor:pointer}
   .phone-dots i.on{width:22px;background:var(--yellow)}
@@ -1045,6 +1046,8 @@ function buildResult(a){
 (function(){
   var row = document.querySelector(".phones"), dots = document.querySelectorAll(".phone-dots i");
   if (!row || !window.matchMedia || !matchMedia("(max-width:759px)").matches) return;
+  // Quem reduz animações fica com o carrossel parado, arrastando com o dedo
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   var originals = Array.prototype.slice.call(row.children), n = originals.length;
   // Cópias das telas no fim da fila: quando a última passa, a primeira já vem atrás
   originals.forEach(function(el){
@@ -1052,26 +1055,18 @@ function buildResult(a){
     c.querySelectorAll("img").forEach(function(im){ im.alt = ""; });
     row.appendChild(c);
   });
-  row.classList.add("is-loop");
-  var SPEED = 34, pos = 0, last = 0, pausedUntil = 0, visible = true;
-  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  row.classList.add("is-loop"); // sem arrastar: o dedo por cima só rola a página
+  var SPEED = 37, pos = 0, last = 0, visible = true;
   function setW(){ return row.children[n].offsetLeft - row.children[0].offsetLeft; }
   function stepW(){ return row.children[1].offsetLeft - row.children[0].offsetLeft; }
-  function wrap(){ var w = setW(); if (row.scrollLeft >= w) row.scrollLeft -= w; }
   function upd(){ var c = Math.round(row.scrollLeft / stepW()) % n; dots.forEach(function(d, i){ d.classList.toggle("on", i === c); }); }
-  function pause(){ pausedUntil = Date.now() + 4000; }
-  row.addEventListener("scroll", function(){ wrap(); upd(); }, {passive:true});
-  ["pointerdown","touchstart","wheel"].forEach(function(ev){ row.addEventListener(ev, pause, {passive:true}); });
-  dots.forEach(function(d, i){ d.addEventListener("click", function(){ pause(); row.scrollTo({left: i * stepW(), behavior:"smooth"}); }); });
   if ("IntersectionObserver" in window) new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:.2}).observe(row);
-  if (reduce) return;
   function frame(t){
     var dt = last ? Math.min(0.05, (t - last) / 1000) : 0; last = t;
-    if (visible && !document.hidden && Date.now() >= pausedUntil){
-      if (Math.abs(row.scrollLeft - pos) > 2) pos = row.scrollLeft; // retoma de onde a pessoa deixou
+    if (visible && !document.hidden){
       pos += SPEED * dt;
       var w = setW(); if (pos >= w) pos -= w;
-      row.scrollLeft = pos;
+      row.scrollLeft = pos; upd();
     }
     requestAnimationFrame(frame);
   }
