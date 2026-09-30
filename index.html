@@ -1079,6 +1079,24 @@ function buildResult(a){
   requestAnimationFrame(frame);
 })();
 
+/* ---------- Botões que levam aos planos: param com o preço do Plano Inicial à vista ---------- */
+(function(){
+  var card = document.getElementById("plano-inicial");
+  if (!card) return;
+  function target(){
+    var ty = 0; try { ty = new DOMMatrix(getComputedStyle(card).transform).m42 || 0; } catch(e){}
+    var r = card.getBoundingClientRect(), top = r.top + scrollY - ty, bottom = r.bottom + scrollY - ty;
+    // Cabe inteiro? mostra o cartão todo. Não cabe (celular)? mostra o fim: preço + botão.
+    return (bottom - top + 40 <= innerHeight) ? top - 24 : bottom + 16 - innerHeight;
+  }
+  document.addEventListener("click", function(e){
+    var a = e.target.closest && e.target.closest("a");
+    if (!a || a.getAttribute("href") !== "#oferta" || a.classList.contains("js-checkout")) return;
+    e.preventDefault();
+    window.scrollTo({top: Math.max(0, target()), behavior: "smooth"});
+  });
+})();
+
 /* ---------- Barra fixa (mobile) ---------- */
 (function(){
   var s = document.getElementById("sticky"), hero = document.querySelector(".hero"), offer = document.getElementById("oferta");
