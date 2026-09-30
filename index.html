@@ -478,6 +478,21 @@
   .app-words span:nth-child(odd){color:var(--text)} .app-words span:nth-child(even){color:var(--yellow)}
   .phones{display:flex;gap:14px;margin-top:40px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 18px;margin-left:-16px;margin-right:-16px;scrollbar-width:none}
   .phones::-webkit-scrollbar{display:none}
+  /* Etapas com foto: arrasta para o lado no celular, como as telas do app */
+  .lv-row{display:flex;gap:12px;margin-top:28px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 14px;margin-left:-16px;margin-right:-16px;scrollbar-width:none}
+  .lv-row::-webkit-scrollbar{display:none}
+  .lv{flex:none;width:190px;scroll-snap-align:start;scroll-margin-left:16px}
+  .lv-img{position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3)}
+  .lv-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .lv-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.75))}
+  .lv-img b{position:absolute;left:14px;bottom:10px;z-index:1;font-family:"Archivo";font-weight:900;font-style:italic;font-size:40px;line-height:1}
+  .lv:nth-child(1) b{color:var(--cold)} .lv:nth-child(2) b{color:var(--mild)} .lv:nth-child(3) b{color:var(--warm)} .lv:nth-child(4) b{color:var(--yellow)}
+  .lv figcaption{margin-top:10px;font-size:14px;color:var(--text-2);line-height:1.35}
+  .lv figcaption span{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--text);margin-bottom:2px}
+  @media (min-width:760px){
+    .lv-row{overflow:visible;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;max-width:900px}
+    .lv{width:auto}
+  }
   .phone{flex:none;width:236px;scroll-snap-align:start;scroll-margin-left:16px}
   .phone .frame{border-radius:34px;padding:8px;background:linear-gradient(160deg,#2A2A2E,#141416);border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 60px -30px rgba(0,0,0,.8),0 0 0 1px rgba(0,0,0,.4) inset}
   .phone img{width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:top;border-radius:27px;background:var(--ink-3)}
@@ -643,11 +658,11 @@
     <span class="eyebrow reveal">A jornada</span>
     <h2 class="h2 reveal">Cada grau é um <span class="y">novo estágio</span> da sua evolução.</h2>
     <p class="lead reveal">Você encontra um treino, depois outro, e no dia seguinte não sabe o que fazer. <strong>A jornada organiza isso em 28 dias e 4 etapas.</strong> Você só abre o treino do dia e segue.</p>
-    <div class="steps-line reveal" aria-label="As 4 etapas da jornada">
-      <div><b>18°</b><span>Comece</span></div>
-      <div><b>22°</b><span>Adapte</span></div>
-      <div><b>25°</b><span>Evolua</span></div>
-      <div><b>28°</b><span>Consolide</span></div>
+    <div class="lv-row reveal" aria-label="As 4 etapas da jornada">
+      <figure class="lv"><div class="lv-img"><img src="img/18-prancha.webp" alt="Homem de moletom fazendo prancha no quarto numa manhã fria" loading="lazy" width="900" height="1200"><b>18°</b></div><figcaption><span>Comece</span>Tire o corpo da inércia.</figcaption></figure>
+      <figure class="lv"><div class="lv-img"><img src="img/22-casa.webp" alt="Homem fazendo agachamento no quarto pela manhã" loading="lazy" width="900" height="1200"><b>22°</b></div><figcaption><span>Adapte</span>O corpo começa a entender o treino.</figcaption></figure>
+      <figure class="lv"><div class="lv-img"><img src="img/25-banco.webp" alt="Homem fazendo flexão inclinada num banco da orla ao pôr do sol" loading="lazy" width="900" height="1200"><b>25°</b></div><figcaption><span>Evolua</span>O desafio aumenta.</figcaption></figure>
+      <figure class="lv"><div class="lv-img"><img src="img/28-praia.webp" alt="Homem caminhando em direção ao mar num dia de sol" loading="lazy" width="900" height="1200"><b>28°</b></div><figcaption><span>Consolide</span>A rotina agora é sua.</figcaption></figure>
     </div>
     <div class="app-steps reveal" style="margin-top:18px"><span>Abra o treino.</span><span>Execute.</span><span>Marque como concluído.</span><span>Avance para a próxima etapa.</span></div>
   </div>
