@@ -509,6 +509,7 @@
   .rung .btn-ghost{backdrop-filter:none;-webkit-backdrop-filter:none}
   .ladder-note{text-align:center;color:var(--text-2);font-size:15px;margin:22px auto 0;max-width:52ch}
   .ladder-note b{color:var(--text)}
+  .link-btn{background:none;border:0;padding:0;font:inherit;color:var(--yellow);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
   .guar-row{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:var(--text-3);font-weight:600}
   .guar-row span{display:inline-flex;align-items:center;gap:6px}
   .guar-row svg{width:15px;height:15px;color:var(--yellow)}
@@ -621,7 +622,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <span class="cta-or">ou</span>
-      <a class="btn btn-ghost" href="#jornada">Veja aqui como iniciar na calistenia ↓</a>
+      <a class="btn btn-ghost" href="#app">Veja como começar ↓</a>
       <p class="fine">Pagamento único · Acesso imediato · 7 dias de garantia</p>
     </div>
   </div>
@@ -636,145 +637,32 @@
   </div>
 </div>
 
-<!-- ================= 2. PROBLEMA ================= -->
-<section>
-  <div class="wrap problem">
-    <div class="blend fade-b reveal">
-      <img src="img/18-parado.webp" alt="Homem sentado na cama à noite mexendo no celular" loading="lazy" width="900" height="1200">
-      <span class="deg">18°</span>
+<!-- ================= 2. A JORNADA 18° → 28° ================= -->
+<section id="jornada">
+  <div class="wrap">
+    <span class="eyebrow reveal">A jornada</span>
+    <h2 class="h2 reveal">Cada grau é um <span class="y">novo estágio</span> da sua evolução.</h2>
+    <p class="lead reveal">Você encontra um treino, depois outro, e no dia seguinte não sabe o que fazer. <strong>A jornada organiza isso em 28 dias e 4 etapas.</strong> Você só abre o treino do dia e segue.</p>
+    <div class="steps-line reveal" aria-label="As 4 etapas da jornada">
+      <div><b>18°</b><span>Comece</span></div>
+      <div><b>22°</b><span>Adapte</span></div>
+      <div><b>25°</b><span>Evolua</span></div>
+      <div><b>28°</b><span>Consolide</span></div>
     </div>
-    <div class="problem-text">
-      <span class="eyebrow reveal">O primeiro passo</span>
-      <h2 class="h2 reveal">O problema não é falta de vontade. <span class="y">É não ter um caminho.</span></h2>
-      <p class="reveal">Você encontra um treino.<br>Depois outro.<br>Salva alguns vídeos.<br>Testa exercícios diferentes.</p>
-      <p class="reveal">Mas, quando chega o dia seguinte... <strong>O que você deveria treinar? E depois? E depois?</strong></p>
-      <p class="reveal">Sem uma sequência clara, fica fácil transformar o treino em improviso.</p>
-      <p class="quote reveal">A Jornada Calistenic&nbsp;28° organiza esse caminho para você.</p>
-      <p class="reveal">Você não precisa decidir tudo sozinho.</p>
-      <div class="app-steps reveal" style="margin-top:14px"><span>Abra o treino.</span><span>Execute.</span><span>Marque como concluído.</span><span>Avance para a próxima etapa.</span></div>
-      <a class="btn reveal" href="#oferta" style="margin-top:26px">
-        Quero seguir a Jornada Calistenic&nbsp;28°
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
+    <div class="app-steps reveal" style="margin-top:18px"><span>Abra o treino.</span><span>Execute.</span><span>Marque como concluído.</span><span>Avance para a próxima etapa.</span></div>
   </div>
 </section>
 
-<!-- ================= 3. A JORNADA 18° → 28° ================= -->
-<section class="journey" id="jornada">
+<!-- ================= 3. PLATAFORMA ================= -->
+<section class="app-sec" id="app" style="padding-top:0">
   <div class="wrap">
-    <div class="journey-head">
-      <span class="eyebrow reveal">A jornada</span>
-      <h2 class="h2 reveal">Cada grau é um <span class="y">novo estágio</span> da sua evolução.</h2>
-      <p class="lead reveal"><strong>28 dias. 4 etapas. 1 sequência progressiva.</strong> Você não precisa tentar fazer tudo no primeiro dia. A proposta é simples: começar → adaptar → evoluir → consolidar.</p>
-      <div class="steps-line reveal" aria-label="As 4 etapas da jornada">
-        <div><b>18°</b><span>Comece</span></div>
-        <div><b>22°</b><span>Adapte</span></div>
-        <div><b>25°</b><span>Evolua</span></div>
-        <div><b>28°</b><span>Consolide</span></div>
-      </div>
-    </div>
-
-    <div class="journey-grid">
-      <div class="thermo" aria-hidden="true">
-        <span class="now" id="thermoNow">18°</span>
-        <div class="tube"><i></i></div>
-        <div class="bulb"></div>
-      </div>
-
-      <div class="stages">
-        <article class="stage s18 reveal" data-t="18" data-c="var(--cold)" data-f="25%" data-bg="#0D1218">
-          <div class="blend fade-b"><img src="img/18-prancha.webp" alt="Homem de moletom fazendo prancha no quarto numa manhã fria" loading="lazy" width="900" height="1200"><span class="deg">18°</span></div>
-          <div class="stage-body">
-            <span class="stage-week">Etapa 1</span>
-            <h3><span class="stage-tag">Comece</span><br>Tire o corpo da inércia.</h3>
-            <p>O primeiro passo é criar uma base. Você começa conhecendo os movimentos fundamentais e estabelecendo uma rotina de treino.</p>
-            <ul class="focus"><li>Movimentos básicos</li><li>Familiarização com os exercícios</li><li>Organização da rotina</li></ul>
-            <div class="bar"><i></i></div>
-          </div>
-        </article>
-        <article class="stage s22 reveal" data-t="22" data-c="var(--mild)" data-f="50%" data-bg="#101411">
-          <div class="blend fade-b"><img src="img/22-casa.webp" alt="Homem fazendo agachamento no quarto pela manhã" loading="lazy" width="900" height="1200"><span class="deg">22°</span></div>
-          <div class="stage-body">
-            <span class="stage-week">Etapa 2</span>
-            <h3><span class="stage-tag">Adapte</span><br>O corpo começa a entender o treino.</h3>
-            <p>Agora é hora de dar continuidade. Você pratica os movimentos e começa a trabalhar mais controle e consistência.</p>
-            <ul class="focus"><li>Continuidade</li><li>Controle corporal</li><li>Progressão gradual</li></ul>
-            <div class="bar"><i></i></div>
-          </div>
-        </article>
-        <article class="stage s25 reveal" data-t="25" data-c="var(--warm)" data-f="75%" data-bg="#17100B">
-          <div class="blend fade-b"><img src="img/25-banco.webp" alt="Homem fazendo flexão inclinada num banco da orla ao pôr do sol" loading="lazy" width="900" height="1200"><span class="deg">25°</span></div>
-          <div class="stage-body">
-            <span class="stage-week">Etapa 3</span>
-            <h3><span class="stage-tag">Evolua</span><br>O desafio aumenta.</h3>
-            <p>Com a base construída, novas variações entram na sequência. O objetivo não é pular etapas. É continuar avançando.</p>
-            <ul class="focus"><li>Novos desafios</li><li>Variações dos movimentos</li><li>Evolução progressiva</li></ul>
-            <div class="bar"><i></i></div>
-          </div>
-        </article>
-        <article class="stage s28 reveal" data-t="28" data-c="var(--yellow)" data-f="100%" data-bg="#16150A">
-          <div class="blend fade-b"><img src="img/28-praia.webp" alt="Homem caminhando em direção ao mar num dia de sol" loading="lazy" width="900" height="1200"><span class="deg">28°</span></div>
-          <div class="stage-body">
-            <span class="stage-week">Etapa 4</span>
-            <h3><span class="stage-tag">Consolide</span><br>A rotina agora é sua.</h3>
-            <p>Você chega ao final do primeiro ciclo com uma sequência completa de treino. Revise. Repita. Continue praticando.</p>
-            <ul class="focus"><li>Consistência</li><li>Acompanhamento</li><li>Próximo ciclo</li></ul>
-            <div class="bar"><i></i></div>
-          </div>
-        </article>
-      </div>
-    </div>
-    <p class="no-skip reveal">Você não pula etapas.<br><span>Você avança através delas.</span></p>
-  </div>
-</section>
-
-<!-- ================= 4. A FILOSOFIA ================= -->
-<section>
-  <div class="wrap">
-    <span class="eyebrow reveal">A filosofia</span>
-    <h2 class="h2 reveal">Você não precisa pular etapas. <span class="y">Você precisa de um caminho para seguir.</span></h2>
-    <p class="lead reveal">A Jornada Calistenic&nbsp;28° foi pensada para transformar uma rotina solta de exercícios em uma sequência organizada de treinamento.</p>
-    <div class="app-words reveal"><span>Cada etapa prepara a próxima.</span><span>Cada treino tem um propósito.</span><span>Cada grau é um novo momento da jornada.</span></div>
-    <p class="lead reveal">Não é sobre fazer tudo de uma vez. <strong>É sobre continuar.</strong></p>
-  </div>
-</section>
-
-<!-- ================= 5. O QUE VOCÊ DESENVOLVE ================= -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <span class="eyebrow reveal">O que você desenvolve</span>
-    <h2 class="h2 reveal">Calistenia é sobre aprender a usar <span class="y">o próprio corpo.</span></h2>
-    <p class="lead reveal">Durante sua jornada, você trabalha diferentes aspectos do treinamento:</p>
-    <div class="ben-grid">
-      <div class="ben reveal"><span class="k">01</span><h3>Força</h3><p>Pratique movimentos utilizando o peso do próprio corpo.</p></div>
-      <div class="ben reveal"><span class="k">02</span><h3>Mobilidade</h3><p>Inclua movimentos que trabalham amplitude e controle.</p></div>
-      <div class="ben reveal"><span class="k">03</span><h3>Flexibilidade</h3><p>Adicione exercícios que ajudam a desenvolver sua prática de mobilidade.</p></div>
-      <div class="ben reveal"><span class="k">04</span><h3>Controle</h3><p>Aprenda a executar os movimentos com mais consciência corporal.</p></div>
-      <div class="ben reveal"><span class="k">05</span><h3>Consistência</h3><p>Tenha uma sequência que facilita manter seus treinos organizados.</p></div>
-      <div class="ben reveal"><span class="k">06</span><h3>Praticidade</h3><p>Treine em casa, na praça ou em outro espaço adequado.</p></div>
-    </div>
-    <p class="ben-note reveal">A experiência de cada pessoa varia conforme o ritmo, a constância e a condição física individual.</p>
-  </div>
-</section>
-
-<!-- ================= 6. PLATAFORMA ================= -->
-<section class="app-sec" style="padding-top:0">
-  <div class="wrap">
-    <span class="eyebrow reveal">Dentro da Jornada Calistenic 28°</span>
+    <span class="eyebrow reveal">Dentro da Jornada Calistenic&nbsp;28°</span>
     <h2 class="h2 reveal">Tudo o que você precisa. <span class="y">No seu próximo treino.</span></h2>
-    <div class="app-words reveal"><span>Seu próximo treino.</span><span>Sua próxima etapa.</span><span>Sua próxima evolução.</span></div>
-    <p class="lead reveal">Você encontra:</p>
     <div class="phones reveal">
       <figure class="phone"><div class="frame"><img src="img/app-inicio.webp" alt="Tela inicial com o termômetro da jornada e o treino do dia" loading="lazy" width="390" height="844"></div><p><b>Treino do dia</b>Saiba exatamente qual treino está programado para sua jornada.</p></figure>
       <figure class="phone"><div class="frame"><img src="img/app-treino.webp" alt="Tela de um dia de treino com os exercícios e as repetições" loading="lazy" width="390" height="844"></div><p><b>Demonstração dos exercícios</b>Veja como realizar os movimentos antes de começar.</p></figure>
       <figure class="phone"><div class="frame"><img src="img/app-progresso.webp" alt="Tela de acompanhamento com dias concluídos e sequência" loading="lazy" width="390" height="844"></div><p><b>Acompanhamento</b>Marque os treinos concluídos e acompanhe sua sequência.</p></figure>
       <figure class="phone"><div class="frame"><img src="img/app-academia.webp" alt="Área Premium com treinos de academia personalizados" loading="lazy" width="390" height="844"></div><p><b>Premium: treinos de academia</b>Para quem quer dar um passo a mais depois da calistenia.</p></figure>
-    </div>
-    <div class="mini-feats">
-      <div class="reveal"><b>Sequência de 28 dias</b><span>Acompanhe sua evolução através das quatro etapas.</span></div>
-      <div class="reveal"><b>Progressão</b><span>Tenha clareza sobre o que vem depois.</span></div>
-      <div class="reveal"><b>Acesso digital</b><span>Treine pelo celular, computador ou dispositivo compatível.</span></div>
     </div>
     <a class="btn reveal" href="#oferta" style="margin-top:30px">
       Quero começar minha jornada
@@ -783,38 +671,29 @@
   </div>
 </section>
 
-<!-- ================= 7. O PRIMEIRO CICLO ================= -->
-<section class="cycle" style="padding-top:0">
-  <div class="wrap">
-    <span class="eyebrow reveal">O primeiro ciclo</span>
-    <h2 class="h2 reveal">28 dias não são o fim. <span class="y">São o primeiro ciclo.</span></h2>
-    <p class="lead reveal">Ao completar os 28 dias, você já conhece a estrutura. Já sabe como os treinos funcionam. <strong>E pode escolher como continuar.</strong></p>
-    <div class="cycle-steps">
-      <div class="reveal"><small>Primeiro ciclo</small><b>Você começa.</b><span>28 dias de treinamento progressivo para entrar na metodologia.</span></div>
-      <div class="reveal"><small>Depois, você continua</small><b>Você mantém.</b><span>O acesso Vitalício permite continuar utilizando o método.</span></div>
-      <div class="reveal"><small>E, se quiser dar um passo a mais</small><b>Você vai além.</b><span>O Premium adiciona treinos de academia personalizados para o seu objetivo, para continuar evoluindo depois da calistenia.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 8. OFERTAS ================= -->
+<!-- ================= 4. PLANOS ================= -->
 <section id="oferta" class="offer-sec">
   <div class="wrap">
+    <span class="eyebrow reveal">Planos</span>
+    <h2 class="h2 reveal">Escolha como <span class="y">começar.</span></h2>
     <div class="ladder">
       <article class="rung r1 reveal">
+        <span class="badge">Recomendado para começar</span>
         <span class="num">Plano Normal</span>
         <h3 class="kick">Começo</h3>
         <p class="msg">Seu primeiro ciclo de 28 dias.</p>
         <ul>
-          <li>28 dias de treinos</li>
-          <li>4 etapas progressivas</li>
-          <li>Demonstração dos exercícios</li>
-          <li>Treinos com peso do corpo</li>
-          <li>Acompanhamento da sequência</li>
+          <li><b>28 dias de treino</b> com a ficha completa de cada dia</li>
+          <li>4 etapas progressivas, da base ao Desafio 28 Graus</li>
+          <li>Aquecimento pronto antes de cada treino</li>
+          <li>27 exercícios de calistenia com demonstração</li>
+          <li>4 escadas de progressão: flexão, agachamento, ponte e core</li>
+          <li>Guia do método: como escolher o nível, progredir e se recuperar</li>
+          <li>Checkpoints, diário e sequência de dias para acompanhar sua evolução</li>
           <li><b>6 meses de acesso</b></li>
         </ul>
         <div class="pr"><b><sup>R$</sup>34,90</b><small>pagamento<br>único</small></div>
-        <a class="btn btn-block btn-ghost js-checkout" href="#oferta" data-tier="comece">Começar agora</a>
+        <a class="btn btn-block js-checkout" href="#oferta" data-tier="comece">Começar agora</a>
         <p class="rung-fine">Pagamento único · 7 dias de garantia</p>
       </article>
 
@@ -823,11 +702,12 @@
         <h3 class="kick">Continuidade</h3>
         <p class="msg">Para continuar depois do primeiro ciclo.</p>
         <ul>
-          <li>Tudo do Plano Normal</li>
-          <li><b>Acesso vitalício</b></li>
-          <li>Repetição dos ciclos</li>
-          <li>Histórico de evolução</li>
-          <li>Acesso contínuo ao método</li>
+          <li><b>Tudo do Plano Normal</b></li>
+          <li><b>Acesso vitalício</b>, sem prazo para terminar</li>
+          <li>Refaça o ciclo de 28 dias quantas vezes quiser</li>
+          <li>Seu progresso e seu histórico ficam salvos</li>
+          <li>Volte ao método sempre que precisar recomeçar</li>
+          <li>Só R$&nbsp;5 a mais que o Plano Normal</li>
         </ul>
         <div class="pr"><b><sup>R$</sup>39,90</b><small>pagamento<br>único</small></div>
         <a class="btn btn-block js-checkout" href="#oferta" data-tier="continue">Quero o vitalício</a>
@@ -839,11 +719,14 @@
         <h3 class="kick">Vá além</h3>
         <p class="msg">Para quem concluiu a calistenia e quer <strong>dar um passo a mais na evolução</strong>, levando o treino também para a academia.</p>
         <ul>
-          <li>Tudo do Plano Vitalício, com <b>acesso vitalício</b></li>
-          <li><b>Área Premium</b> dentro da sua conta</li>
-          <li><b>Treinos de academia</b> com demonstração de cada exercício</li>
-          <li>Treino <b>personalizado para o seu objetivo</b> e para o seu nível</li>
-          <li>Estrutura semana a semana, adaptada ao seu perfil de treino</li>
+          <li><b>Tudo do Plano Vitalício</b>, com acesso vitalício</li>
+          <li><b>Área Premium de academia</b> dentro da sua conta</li>
+          <li>Treino <b>personalizado para o seu objetivo</b>: massa, força, definição ou condicionamento</li>
+          <li>3 níveis: iniciante, intermediário e avançado</li>
+          <li>12 planos de 28 dias, em 4 semanas progressivas no mesmo método 18° → 28°</li>
+          <li>36 exercícios de academia com demonstração</li>
+          <li>Dias de recuperação com mobilidade, adaptados ao seu objetivo</li>
+          <li>Só R$&nbsp;8 a mais que o Plano Vitalício</li>
         </ul>
         <div class="pr"><b><sup>R$</sup>47,90</b><small>pagamento<br>único</small></div>
         <a class="btn btn-block js-checkout" href="#oferta" data-tier="premium">Quero o Premium</a>
@@ -857,69 +740,27 @@
       <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/></svg>7 dias de garantia</span>
       <span>Pix ou cartão</span>
     </div>
+    <p class="ladder-note reveal"><b>7 dias de garantia:</b> se decidir que a Jornada Calistenic&nbsp;28° não é para você, é só pedir o reembolso dentro do prazo.</p>
+    <p class="ladder-note reveal">Não sabe por qual começar? <button type="button" class="link-btn js-quiz">Descubra seu ponto de partida</button></p>
   </div>
 </section>
 
-<!-- ================= 9. CONSISTÊNCIA + GARANTIA ================= -->
-<section style="padding-top:0">
-  <div class="wrap truth">
-    <div class="truth-card y-card reveal">
-      <h3>Consistência<br>antes da pressa.</h3>
-      <p>Começar é importante. Mas continuar é o que constrói uma prática. Não tente fazer tudo no primeiro dia.</p>
-      <p class="y-four">Comece.<br>Adapte.<br>Evolua.<br>Continue.</p>
-      <a class="btn btn-dark" href="#oferta">Começar minha jornada
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <div class="truth-card reveal">
-      <div class="seal"><div><b>7</b><small>DIAS</small></div></div>
-      <h3 style="font-size:30px">7 dias de garantia</h3>
-      <p>Você pode conhecer o método e experimentar os treinos.</p>
-      <p>Se decidir que a Jornada Calistenic&nbsp;28° não é para você, solicite o reembolso dentro do prazo da garantia.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 10. SUA JORNADA COMEÇA AQUI ================= -->
-<section style="padding-top:0" id="quiz">
-  <div class="wrap">
-    <div class="quiz-cta reveal">
-      <div>
-        <span class="eyebrow">Sua jornada começa aqui</span>
-        <h2 class="h2">Descubra seu caminho <span class="y">na Jornada Calistenic&nbsp;28°.</span></h2>
-        <p class="lead"><strong>28 dias. 4 etapas. Uma sequência para seguir.</strong> Escolha seu plano e comece pelo primeiro treino.</p>
-        <div class="hero-cta" style="margin-top:28px">
-          <a class="btn" href="#oferta">
-            Começar por R$&nbsp;34,90
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <button class="btn btn-ghost js-quiz" type="button">Descobrir meu ponto de partida</button>
-        </div>
-      </div>
-      <div class="mini-thermo" aria-hidden="true"><i data-t="18°"></i><i data-t="22°"></i><i data-t="25°"></i><i data-t="28°"></i></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 11. FAQ ================= -->
+<!-- ================= 5. FAQ ================= -->
 <section style="padding-top:0">
   <div class="wrap">
     <span class="eyebrow reveal">Dúvidas</span>
     <h2 class="h2 reveal">Perguntas frequentes</h2>
     <div class="faq">
       <details class="reveal"><summary>Quando e como recebo meu acesso?</summary><p><b>Na hora, direto no seu celular.</b> O acesso é liberado logo após a compra, no e-mail que você informou no checkout. É só criar sua conta com esse mesmo e-mail e começar o primeiro treino, sem baixar nenhum aplicativo. Também funciona no computador.</p></details>
-      <details class="reveal"><summary>Como funciona a Jornada Calistenic&nbsp;28°?</summary><p>Você recebe uma sequência de 28 dias dividida em quatro etapas progressivas: 18°, 22°, 25° e 28°.</p></details>
       <details class="reveal"><summary>Preciso ter experiência com calistenia?</summary><p>Não. O programa foi estruturado para apresentar os movimentos de forma progressiva.</p></details>
       <details class="reveal"><summary>Preciso de academia?</summary><p>Não. Os treinos principais utilizam o peso do próprio corpo e podem ser realizados em espaços adequados. A área de academia existe só no Premium, para quem quer dar um passo a mais depois de concluir a calistenia.</p></details>
-      <details class="reveal"><summary>Quanto tempo dura cada treino?</summary><p>A proposta é trabalhar com treinos de aproximadamente 15 minutos.</p></details>
-      <details class="reveal"><summary>Posso treinar em casa?</summary><p>Sim. A estrutura foi pensada para ser prática e utilizar principalmente exercícios com peso corporal.</p></details>
       <details class="reveal"><summary>Qual a diferença entre os planos?</summary><p><b>Normal:</b> 28 dias e 6 meses de acesso. <b>Vitalício:</b> acesso permanente ao método. <b>Premium:</b> acesso vitalício + área de academia com treinos personalizados para o seu objetivo. Se começar pelo Normal ou pelo Vitalício, dá para fazer o upgrade depois pagando só a diferença, de dentro da sua conta.</p></details>
       <details class="reveal"><summary>Tenho garantia?</summary><p>Sim. Você tem 7 dias de garantia. Dentro desse prazo, é só solicitar o reembolso.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ================= 12. FECHAMENTO ================= -->
+<!-- ================= 6. FECHAMENTO ================= -->
 <section class="final">
   <div class="final-img"><img src="img/por-do-sol.webp" alt="" loading="lazy" width="2000" height="1125"></div>
   <div class="wrap">
@@ -1102,24 +943,6 @@ function buildResult(a){
     en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
   },{rootMargin:"0px 0px -8% 0px"});
   els.forEach(function(el){ io.observe(el); });
-})();
-
-/* ---------- Termômetro que esquenta com a rolagem ---------- */
-(function(){
-  var sec = document.getElementById("jornada"), now = document.getElementById("thermoNow");
-  var stages = document.querySelectorAll(".stage");
-  if(!("IntersectionObserver" in window)) return;
-  var io = new IntersectionObserver(function(en){
-    en.forEach(function(e){
-      if(!e.isIntersecting) return;
-      var s = e.target;
-      sec.style.setProperty("--t-color", s.dataset.c);
-      sec.style.setProperty("--t-fill", s.dataset.f);
-      sec.style.setProperty("--stage-bg", s.dataset.bg);
-      now.textContent = s.dataset.t + "°";
-    });
-  },{rootMargin:"-45% 0px -45% 0px"});
-  stages.forEach(function(s){ io.observe(s); });
 })();
 
 /* ---------- Barra fixa (mobile) ---------- */
