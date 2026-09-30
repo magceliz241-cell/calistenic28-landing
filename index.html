@@ -555,6 +555,11 @@
   .rung.r3{background:linear-gradient(160deg,#1E1C0C,#141416 60%);border:1.5px solid var(--yellow);box-shadow:0 30px 70px -40px rgba(255,229,0,.55)}
   .rung .badge{position:absolute;top:-13px;right:20px;background:var(--yellow);color:var(--black);font-family:"Archivo";font-weight:800;font-size:11.5px;letter-spacing:.08em;padding:6px 12px;border-radius:99px;text-transform:uppercase}
   #plano-inicial{scroll-margin-top:24px}
+  /* "Só R$ X a mais": selo em destaque acima do preço */
+  .rung-diff{display:flex;align-items:center;gap:10px;margin:auto 0 18px;padding:12px 14px;border-radius:14px;background:rgba(255,229,0,.12);border:1px solid rgba(255,229,0,.45);font-size:15px;font-weight:700;color:var(--text);line-height:1.3}
+  .rung-diff svg{flex:none;width:22px;height:22px;padding:4px;border-radius:50%;background:var(--yellow);color:var(--black)}
+  .rung-diff + .pr{margin-top:0}
+  .rung-diff b{color:var(--yellow);font-family:"Archivo";font-style:italic;font-weight:900;font-size:19px;white-space:nowrap}
   .rung .btn-ghost{backdrop-filter:none;-webkit-backdrop-filter:none}
   .ladder-note{text-align:center;color:var(--text-2);font-size:15px;margin:22px auto 0;max-width:52ch}
   .ladder-note b{color:var(--text)}
@@ -769,8 +774,8 @@
           <li>Refaça o ciclo de 28 dias quantas vezes quiser</li>
           <li>Seu progresso e seu histórico ficam salvos</li>
           <li>Volte ao método sempre que precisar recomeçar</li>
-          <li>Só R$&nbsp;7 a mais que o Plano Inicial</li>
         </ul>
+        <p class="rung-diff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>Só <b>R$&nbsp;7</b> a mais que o Plano Inicial</span></p>
         <div class="pr"><b><sup>R$</sup>24,90</b><small>pagamento<br>único</small></div>
         <a class="btn btn-block js-checkout" href="#oferta" data-tier="continue">Quero o vitalício</a>
         <p class="rung-fine">Pagamento único · 7 dias de garantia</p>
@@ -789,8 +794,8 @@
           <li>12 planos de 28 dias, em 4 semanas progressivas no mesmo método 18° → 28°</li>
           <li>36 exercícios de academia com demonstração</li>
           <li>Dias de recuperação com mobilidade, adaptados ao seu objetivo</li>
-          <li>Só R$&nbsp;5 a mais que o Plano Vitalício</li>
         </ul>
+        <p class="rung-diff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>Só <b>R$&nbsp;5</b> a mais que o Plano Vitalício</span></p>
         <div class="pr"><b><sup>R$</sup>29,90</b><small>pagamento<br>único</small></div>
         <a class="btn btn-block js-checkout" href="#oferta" data-tier="premium">Quero o Premium</a>
         <p class="rung-fine">Pagamento único · 7 dias de garantia</p>
