@@ -646,7 +646,7 @@
 </head>
 <body>
 
-<div class="topbar"><span class="js-timer-wrap">Por tempo limitado: <b class="js-timer">40:00</b> · </span>Primeiro ciclo por R$17,90 · 7 dias de garantia</div>
+<div class="topbar"><span class="js-timer-wrap">Por tempo limitado: <b class="js-timer">32:00</b> · </span>Primeiro ciclo por R$17,90 · 7 dias de garantia</div>
 
 <!-- ================= 1. HERO ================= -->
 <header class="hero">
@@ -734,7 +734,7 @@
   <div class="wrap">
     <span class="eyebrow reveal">Planos</span>
     <h2 class="h2 reveal">Escolha como <span class="y">começar.</span></h2>
-    <p class="offer-timer js-timer-wrap"><span class="dot"></span>Por tempo limitado · termina em <b class="js-timer">40:00</b></p>
+    <p class="offer-timer js-timer-wrap"><span class="dot"></span>Por tempo limitado · termina em <b class="js-timer">32:00</b></p>
     <div class="ladder">
       <article class="rung r1 reveal">
         <span class="num">Plano Inicial</span>
@@ -850,7 +850,7 @@
 
 <!-- Barra fixa mobile -->
 <div class="sticky" id="sticky">
-  <div class="s-price"><small><span class="js-timer-wrap">Termina em <b class="js-timer">40:00</b></span><span class="js-timer-off">Primeiro ciclo</span></small><b>R$17,90</b></div>
+  <div class="s-price"><small><span class="js-timer-wrap">Termina em <b class="js-timer">32:00</b></span><span class="js-timer-off">Primeiro ciclo</span></small><b>R$17,90</b></div>
   <a class="btn" href="#oferta">Começar agora</a>
 </div>
 
@@ -1025,9 +1025,9 @@ function buildResult(a){
   upd();
 })();
 
-/* ---------- Contagem de 40 min "por tempo limitado" (começa na 1ª visita) ---------- */
+/* ---------- Contagem de 32 min "por tempo limitado" (começa na 1ª visita) ---------- */
 (function(){
-  var DUR = 40 * 60 * 1000, KEY = "s28_timer_start", start = Date.now();
+  var DUR = 32 * 60 * 1000, KEY = "s28_timer_start", start = Date.now();
   try { var v = +localStorage.getItem(KEY); if (v && v <= start) start = v; else localStorage.setItem(KEY, String(start)); } catch(e){}
   var els = document.querySelectorAll(".js-timer");
   function pad(n){ return (n < 10 ? "0" : "") + n; }
