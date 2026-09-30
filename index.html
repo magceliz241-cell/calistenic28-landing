@@ -1056,7 +1056,7 @@ function buildResult(a){
     row.appendChild(c);
   });
   row.classList.add("is-loop"); // sem arrastar: o dedo por cima só rola a página
-  var SPEED = 37, pos = 0, last = 0, visible = true;
+  var SPEED = 44, pos = 0, last = 0, visible = true;
   function setW(){ return row.children[n].offsetLeft - row.children[0].offsetLeft; }
   function stepW(){ return row.children[1].offsetLeft - row.children[0].offsetLeft; }
   function upd(){ var c = Math.round(row.scrollLeft / stepW()) % n; dots.forEach(function(d, i){ d.classList.toggle("on", i === c); }); }
