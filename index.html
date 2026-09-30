@@ -478,6 +478,20 @@
   .app-words span:nth-child(odd){color:var(--text)} .app-words span:nth-child(even){color:var(--yellow)}
   .phones{display:flex;gap:14px;margin-top:40px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 18px;margin-left:-16px;margin-right:-16px;scrollbar-width:none}
   .phones::-webkit-scrollbar{display:none}
+  .phone-dots{display:flex;justify-content:center;gap:8px;margin-top:4px}
+  .phone-dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.18);transition:width .3s,background .3s;cursor:pointer}
+  .phone-dots i.on{width:22px;background:var(--yellow)}
+  @media (min-width:760px){.phone-dots{display:none}}
+  /* Contagem "por tempo limitado" */
+  .js-timer{font-variant-numeric:tabular-nums}
+  .js-timer-off{display:none}
+  .timer-done .js-timer-wrap{display:none}
+  .timer-done .js-timer-off{display:inline}
+  .offer-timer{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:8px 14px;border-radius:99px;border:1px solid rgba(255,229,0,.4);background:rgba(255,229,0,.08);font-size:14px;font-weight:700;color:var(--text)}
+  .offer-timer b{color:var(--yellow)}
+  .offer-timer .dot{width:8px;height:8px;border-radius:50%;background:#ff4d1a;box-shadow:0 0 0 0 rgba(255,77,26,.6);animation:tick 1.6s infinite}
+  @keyframes tick{70%{box-shadow:0 0 0 8px rgba(255,77,26,0)}100%{box-shadow:0 0 0 0 rgba(255,77,26,0)}}
+  .sticky .s-price small b{color:var(--yellow);font-family:inherit;font-style:normal;font-size:12px;font-weight:800}
   /* Etapas com foto: arrasta para o lado no celular, como as telas do app */
   .lv-row{display:flex;gap:12px;margin-top:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 14px;margin-left:-16px;margin-right:-16px;scrollbar-width:none}
   .lv-row::-webkit-scrollbar{display:none}
@@ -632,7 +646,7 @@
 </head>
 <body>
 
-<div class="topbar">Calistenia progressiva em 28 dias · Primeiro ciclo por R$17,90 · 7 dias de garantia</div>
+<div class="topbar"><span class="js-timer-wrap">Por tempo limitado: <b class="js-timer">40:00</b> · </span>Primeiro ciclo por R$17,90 · 7 dias de garantia</div>
 
 <!-- ================= 1. HERO ================= -->
 <header class="hero">
@@ -661,7 +675,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <span class="cta-or">ou</span>
-      <a class="btn btn-ghost" href="#app">Veja como começar ↓</a>
+      <button type="button" class="btn btn-ghost js-quiz">Veja como começar</button>
       <p class="fine">Pagamento único · Acesso imediato · 7 dias de garantia</p>
     </div>
   </div>
@@ -707,6 +721,7 @@
       <figure class="phone"><div class="frame"><img src="img/app-progresso.webp" alt="Tela de acompanhamento com dias concluídos e sequência" loading="lazy" width="390" height="844"></div><p><b>Acompanhamento</b>Marque os treinos concluídos e acompanhe sua sequência.</p></figure>
       <figure class="phone"><div class="frame"><img src="img/app-academia.webp" alt="Área Premium com treinos de academia personalizados" loading="lazy" width="390" height="844"></div><p><b>Premium: treinos de academia</b>Para quem quer dar um passo a mais depois da calistenia.</p></figure>
     </div>
+    <div class="phone-dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
     <a class="btn reveal" href="#oferta" style="margin-top:30px">
       Quero começar minha jornada
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -719,6 +734,7 @@
   <div class="wrap">
     <span class="eyebrow reveal">Planos</span>
     <h2 class="h2 reveal">Escolha como <span class="y">começar.</span></h2>
+    <p class="offer-timer js-timer-wrap"><span class="dot"></span>Por tempo limitado · termina em <b class="js-timer">40:00</b></p>
     <div class="ladder">
       <article class="rung r1 reveal">
         <span class="num">Plano Inicial</span>
@@ -834,7 +850,7 @@
 
 <!-- Barra fixa mobile -->
 <div class="sticky" id="sticky">
-  <div class="s-price"><small>Primeiro ciclo</small><b>R$17,90</b></div>
+  <div class="s-price"><small><span class="js-timer-wrap">Termina em <b class="js-timer">40:00</b></span><span class="js-timer-off">Primeiro ciclo</span></small><b>R$17,90</b></div>
   <a class="btn" href="#oferta">Começar agora</a>
 </div>
 
@@ -1007,6 +1023,44 @@ function buildResult(a){
   row.addEventListener("scroll", upd, {passive:true});
   window.addEventListener("resize", upd);
   upd();
+})();
+
+/* ---------- Contagem de 40 min "por tempo limitado" (começa na 1ª visita) ---------- */
+(function(){
+  var DUR = 40 * 60 * 1000, KEY = "s28_timer_start", start = Date.now();
+  try { var v = +localStorage.getItem(KEY); if (v && v <= start) start = v; else localStorage.setItem(KEY, String(start)); } catch(e){}
+  var els = document.querySelectorAll(".js-timer");
+  function pad(n){ return (n < 10 ? "0" : "") + n; }
+  function tick(){
+    var left = Math.max(0, DUR - (Date.now() - start));
+    var t = Math.ceil(left / 1000), txt = pad(Math.floor(t / 60)) + ":" + pad(t % 60);
+    els.forEach(function(el){ el.textContent = txt; });
+    if (left <= 0){ document.documentElement.classList.add("timer-done"); clearInterval(iv); }
+  }
+  var iv = setInterval(tick, 1000); tick();
+})();
+
+/* ---------- Carrossel das telas do app (celular) ---------- */
+(function(){
+  var row = document.querySelector(".phones"), dots = document.querySelectorAll(".phone-dots i");
+  if (!row) return;
+  var items = row.children, pausedUntil = 0, visible = false;
+  function stepW(){ return items.length > 1 ? items[1].offsetLeft - items[0].offsetLeft : row.clientWidth; }
+  function maxX(){ return row.scrollWidth - row.clientWidth; }
+  function current(){ return row.scrollLeft >= maxX() - 4 ? items.length - 1 : Math.round(row.scrollLeft / stepW()); }
+  function go(i){ row.scrollTo({left: Math.min(i * stepW(), maxX()), behavior: "smooth"}); }
+  function upd(){ var c = current(); dots.forEach(function(d, i){ d.classList.toggle("on", i === c); }); }
+  function pause(){ pausedUntil = Date.now() + 8000; }
+  row.addEventListener("scroll", upd, {passive:true});
+  ["pointerdown","touchstart","wheel"].forEach(function(ev){ row.addEventListener(ev, pause, {passive:true}); });
+  dots.forEach(function(d, i){ d.addEventListener("click", function(){ pause(); go(i); }); });
+  if ("IntersectionObserver" in window) new IntersectionObserver(function(e){ visible = e[0].isIntersecting; }, {threshold:.4}).observe(row);
+  else visible = true;
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  setInterval(function(){
+    if (!visible || document.hidden || Date.now() < pausedUntil || maxX() <= 4) return;
+    var c = current(); go(c >= items.length - 1 ? 0 : c + 1);
+  }, 3000);
 })();
 
 /* ---------- Barra fixa (mobile) ---------- */
